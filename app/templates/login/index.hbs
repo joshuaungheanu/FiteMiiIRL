@@ -1,0 +1,12 @@
+<!-- using component to make code cleaner -->
+<h2 class="login">List</h2>
+<div class="row">
+  {{#each model as |tournament|}}
+    <div class="col-md-4">
+      {{#tournament-item item=tournament}}
+        {{#link-to 'login.edit' tournament.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+        <button class="btn btn-danger btn-xs" {{action 'deleteTournament' tournament}}>Delete</button>
+      {{/tournament-item}}
+    </div>
+  {{/each}}
+</div>

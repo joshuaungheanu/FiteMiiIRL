@@ -1,0 +1,51 @@
+{{#if session.isAuthenticated}}
+  <h1 class="login">My Tournaments</h1>
+
+  <div class="well">
+    <ul class="nav nav-pills">
+      {{#link-to 'login.index' tagName="li" }}<a href="">List all</a>{{/link-to}}
+      {{#link-to 'login.new' tagName="li" }}<a href="">Add new</a>{{/link-to}}
+    </ul>
+  </div>
+
+  {{outlet}}
+{{else}}
+
+  <div class="jumbotron col-xs-7 col-xs-offset-3">
+    <div class="right tomster"></div>
+    <h1>{{headerMessage}}</h1>
+
+    <br/><br/>
+    <div class="form-horizontal form-group form-group-lg row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <label for="inputEmail" class="col-form-label">Email</label> {{input type="email" value=emailAddress class="form-control" placeholder="example@email.com" autofocus="autofocus"}}
+      </div>
+    </div>
+    <div class="form-horizontal form-group form-group-lg row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <label for="inputPassword" class="col-form-label">Password</label> {{input type="password" value=password class="form-control" placeholder="password must have at least 6 characters"}}
+      </div>
+    </div>
+    <div class="form-horizontal form-group form-group-lg row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <button class="btn btn-primary btn-lg btn-block" {{action 'signIn'}} disabled= {{isDisabled}}>
+          {{#if loginInProgress}}
+           <span class="glyphicon glyphicon-refresh spinning"></span> Signing In...
+         {{else}}
+           Sign In
+         {{/if}}
+          </button>
+      </div>
+    </div>
+    <hr class="hr-text" data-content="New to FiteMiiIRL?">
+    <div class="form-horizontal form-group form-group-lg row">
+      <div class="col-xs-10 col-xs-offset-1">
+        {{#link-to 'register' class="btn btn-primary btn-lg btn-block" }}Create your new account{{/link-to}}
+      </div>
+    </div>
+
+    {{#if responseError}}
+      <div class="alert alert-danger">{{responseError}}</div>
+    {{/if}}
+  </div>
+{{/if}}

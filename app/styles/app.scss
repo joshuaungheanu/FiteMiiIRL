@@ -1,0 +1,124 @@
+@import "bootstrap";
+
+.title {}
+
+.listing .map .page {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+body {
+  padding-top: 20px;
+  background-image: url("../assets/images/back.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: normal;
+  opacity: 0.9;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.tournament-item {
+  min-height: 150px;
+}
+
+.tournament img {
+  height: 100px;
+  float: left;
+  margin-right: 45px;
+  border-radius: 5px;
+}
+
+.label-fade {
+  margin: 10px;
+  opacity: 0;
+  @include transition(all 0.5s);
+
+  &.label-show {
+    opacity: 1;
+  }
+}
+// Spinner in a button
+.glyphicon.spinning {
+  animation: spin 1s infinite linear;
+  -webkit-animation: spin2 1s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@-webkit-keyframes spin2 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 1;
+
+  &:before {
+    content: '';
+    // use the linear-gradient for the fading effect
+    // use a solid background color for a solid bar
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    // this is really the only tricky part, you need to specify the background color of the container element...
+    color: #333333;
+    background-color: #eeeeee;
+  }
+}
+
+.mapslisting {
+  position: absolute;
+  bottom: 13px;
+  right: 50px;
+  height: 120px;
+  width: 120px;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.login {
+  color: white;
+}
+
+.tournament-form {
+  color: black;
+  box-shadow: 0 0 20px 4px #ea0000;
+  background-color: white;
+}
